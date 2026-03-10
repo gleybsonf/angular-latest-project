@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app  # Apenas esta linha por enquanto
+    command: ng serve --host 0.0.0.0 --poll 2000
