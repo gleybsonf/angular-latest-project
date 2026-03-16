@@ -1,0 +1,22 @@
+<div class="main-shell">
+  <aside class="sidebar">
+    <h2>Sistema Base</h2>
+    <nav>
+      <a routerLink="/people" routerLinkActive="active">Pessoas</a>
+      <a routerLink="/vehicles" routerLinkActive="active">Veículos</a>
+    </nav>
+  </aside>
+
+  <header class="header">
+    <button class="mobile-menu-btn">☰</button>
+    <!-- <span
+      >Olá, <strong>{{ user()?.name }}</strong></span
+    > -->
+    <span>Olá, <strong> USER </strong></span>
+    <button (click)="logout()" class="btn-text">Sair</button>
+  </header>
+
+  <main class="content-area">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,64 @@
+// shared/components/layout/layout.component.scss
+@use '../../../../styles/tokens' as tk;
+
+.main-shell {
+  display: grid;
+  grid-template-areas: 'header' 'content';
+  grid-template-rows: 60px 1fr;
+  min-height: 100vh;
+
+  @include tk.device('tablet') {
+    grid-template-areas: 'sidebar header' 'sidebar content';
+    grid-template-columns: 260px 1fr;
+  }
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: map-get(tk.$colors, 'primary');
+  color: white;
+  display: none; // Escondido no mobile por padrão
+
+  @include tk.device('tablet') {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    a {
+      color: rgba(255, 255, 255, 0.8);
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s;
+
+      &.active {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.header {
+  grid-area: header;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  justify-content: space-between;
+}
+
+.content-area {
+  grid-area: content;
+  padding: 1.5rem;
+  background-color: map-get(tk.$colors, 'background');
+  overflow-y: auto;
+}
