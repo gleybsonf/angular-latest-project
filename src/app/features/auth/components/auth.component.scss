@@ -1,0 +1,77 @@
+// features/auth/login.component.scss
+@use '../../../../styles/tokens' as tk;
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background-color: map-get(tk.$colors, 'background');
+
+  .login-card {
+    background: white;
+    width: 100%; // Mobile-First: ocupa a largura total no celular
+    max-width: 400px;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+
+    @include tk.device('tablet') {
+      padding: 3.5rem; // Mais respiro em telas maiores
+    }
+
+    h1 {
+      color: map-get(tk.$colors, 'primary');
+      font-size: map-get(tk.$font-sizes, 'large');
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    p {
+      color: map-get(tk.$colors, 'secondary');
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    font-size: map-get(tk.$font-sizes, 'small');
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+
+    &:focus {
+      outline: none;
+      border-color: map-get(tk.$colors, 'primary');
+    }
+  }
+}
+
+.btn-login {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: map-get(tk.$colors, 'primary');
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
