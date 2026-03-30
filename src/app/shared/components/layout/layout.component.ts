@@ -11,7 +11,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 })
 export class LayoutComponent {
   //private authFacade = inject(AuthFacade);
-  user = this.authFacade.currentUser; // Signal do usuário logado
+  //user = this.authFacade.currentUser; // Signal do usuário logado
 
   logout() {
     //this.authFacade.logout();
