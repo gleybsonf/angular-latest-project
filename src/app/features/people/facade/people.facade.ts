@@ -1,11 +1,11 @@
 // features/people/people.facade.ts
 import { inject, Injectable } from '@angular/core';
-import { PeopleService } from './data/people.service';
-import { peopleState } from './state/people.state';
+import { RegistrationService } from '@core/http/registration/registration.service';
+import { peopleState } from '../state/people.state';
 
 @Injectable({ providedIn: 'root' })
 export class PeopleFacade {
-  private service = inject(PeopleService);
+  private service = inject(RegistrationService);
 
   // Expondo apenas leitura dos sinais
   public readonly list = () => peopleState().list;
