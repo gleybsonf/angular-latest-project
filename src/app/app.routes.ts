@@ -16,16 +16,17 @@ export const routes: Routes = [
     component: LayoutComponent,
     // canActivate: [authGuard], // Protege todas as rotas filhas
     children: [
-      /*  {
-        path: 'people',
-        loadChildren: () => import('./features/people/people.routes').then((m) => m.PEOPLE_ROUTES),
-      },
       {
+        path: 'people',
+        loadChildren: () =>
+          import('./features/people/people.routes').then((m) => m.PEOPLE_ROUTES),
+      },
+      /*  {
         path: 'vehicles',
         loadChildren: () =>
           import('./features/vehicles/vehicles.routes').then((m) => m.VEHICLES_ROUTES),
-      }, */
-      { path: '', redirectTo: 'people', pathMatch: 'full' },
+      },
+      { path: '', redirectTo: 'people', pathMatch: 'full' }, */
     ],
   },
 

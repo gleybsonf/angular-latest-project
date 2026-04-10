@@ -11,5 +11,7 @@ export const authGuard = () => {
   //  return true;
   //}
 
-  return router.parseUrl('/login');
+  return true;
+
+  //return router.parseUrl('/login');
 };

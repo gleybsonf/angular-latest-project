@@ -11,9 +11,9 @@ export class PeopleFacade {
   public readonly list = () => peopleState().list;
   public readonly isLoading = () => peopleState().loading;
 
-  async loadPeople() {
+  async loadPeopless() {
     peopleState.update((s) => ({ ...s, loading: true }));
     const data = await this.service.getAll();
-    //peopleState.update((s) => ({ ...s, list: data, loading: false }));
+    peopleState.update((s) => ({ ...s, list: [] /* data */, loading: false }));
   }
 }
