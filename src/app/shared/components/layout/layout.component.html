@@ -1,14 +1,35 @@
 <div class="main-shell">
-  <aside class="sidebar">
-    <h2>Sistema Base</h2>
-    <nav>
-      <a routerLink="/people" routerLinkActive="active">Pessoas</a>
-      <a routerLink="/vehicles" routerLinkActive="active">Veículos</a>
-    </nav>
+  <aside class="sidebar" [class.collapsed]="isCollapsed">
+    <!-- <h2>Menu</h2> -->
+    <!-- <nav class="nav-link"> -->
+    <ul class="menu">
+      @for (path of routesPaths; track path.id) {
+        <li class="menu-item">
+          <div class="menu-link" (click)="toggle(path)">{{ path.label | titlecase }}</div>
+          <!--  sub-menu -->
+          @if (path.children?.length) {
+            <ul class="submenu" [class.open]="path.expanded">
+              @for (subPath of path.children; track subPath.id) {
+                <li class="submenu-item">
+                  <a routerLink="{{ subPath.path }}" routerLinkActive="active">{{
+                    subPath.label | titlecase
+                  }}</a>
+                </li>
+              } @empty {
+                <h3>Nenhum item disponível</h3>
+              }
+            </ul>
+          }
+        </li>
+      } @empty {
+        <h2>Nenhum caminho disponível</h2>
+      }
+    </ul>
+    <!--  </nav> -->
   </aside>
 
   <header class="header">
-    <button class="mobile-menu-btn">☰</button>
+    <button class="mobile-menu-btn" (click)="toggleCollapse()">☰</button>
     <!-- <span
       >Olá, <strong>{{ user()?.name }}</strong></span
     > -->
