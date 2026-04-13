@@ -18,8 +18,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'people',
-        loadChildren: () =>
-          import('./features/people/people.routes').then((m) => m.PEOPLE_ROUTES),
+        loadChildren: () => import('./features/people/people.routes').then((m) => m.PEOPLE_ROUTES),
       },
       /*  {
         path: 'vehicles',
@@ -31,5 +30,11 @@ export const routes: Routes = [
   },
 
   // Rota de fallback
-  { path: '**', redirectTo: 'login' },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./shared/components/under-construction/under-construction.component').then(
+        (m) => m.UnderConstructionComponent,
+      ),
+  },
 ];
