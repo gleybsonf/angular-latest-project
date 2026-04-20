@@ -34,7 +34,7 @@
       >Olá, <strong>{{ user()?.name }}</strong></span
     > -->
     <span>Olá, <strong> USER </strong></span>
-    <button (click)="logout()" class="btn-text">Sair</button>
+    <app-button (clickButton)="logout()" [textButton]="'Sair'" [disabled]="true"></app-button>
   </header>
 
   <main class="content-area">

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ButtonComponent } from '../ui/button/button.component';
 
 export interface MenuItem {
   id: string; // identificador único, pode ser usado para controle de acesso
@@ -17,7 +18,7 @@ export interface MenuItem {
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, ButtonComponent],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
 })
@@ -47,6 +48,17 @@ export class LayoutComponent {
       { id: 'maps', label: 'Mapas', path: 'maps' },
       { id: 'logs', label: 'Logs', path: 'logs' },
       { id: 'public-data', label: 'Dados Públicos', path: 'public-data' },
+      {
+        id: 'data-structures',
+        label: 'Estruturas de Dados',
+        path: 'data-structures',
+        children: [
+          { id: 'stacks', label: 'Pilhas', path: 'stacks' },
+          { id: 'queues', label: 'Filas', path: 'queues' },
+          { id: 'linked-lists', label: 'Listas Ligadas', path: 'linked-lists' },
+          { id: 'trees', label: 'Árvores', path: 'trees' },
+        ],
+      },
       { id: 'ai', label: 'Inteligência Artificial', path: 'ai' },
     ];
   }
@@ -59,7 +71,7 @@ export class LayoutComponent {
     item.expanded = !item.expanded;
   }
 
-  logout(): void {
+  protected logout(): void {
     //this.authFacade.logout();
   }
 }
