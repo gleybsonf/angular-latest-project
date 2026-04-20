@@ -26,15 +26,14 @@ export const routes: Routes = [
           import('./features/vehicles/vehicles.routes').then((m) => m.VEHICLES_ROUTES),
       },
       { path: '', redirectTo: 'people', pathMatch: 'full' }, */
+      // Rota de fallback
+      {
+        path: '**',
+        loadComponent: () =>
+          import('./shared/components/under-construction/under-construction.component').then(
+            (m) => m.UnderConstructionComponent,
+          ),
+      },
     ],
-  },
-
-  // Rota de fallback
-  {
-    path: '**',
-    loadComponent: () =>
-      import('./shared/components/under-construction/under-construction.component').then(
-        (m) => m.UnderConstructionComponent,
-      ),
   },
 ];
