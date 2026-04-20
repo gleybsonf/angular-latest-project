@@ -1,0 +1,20 @@
+<section container-actions>
+  <app-button [textButton]="'Adicionar item'" (clickButton)="addItem()"></app-button>
+  <app-button
+    [textButton]="'Remover item'"
+    (clickButton)="removeItem()"
+    [disabled]="true"
+  ></app-button>
+</section>
+
+<section stack-actions>
+  <div class="container" @fadeAnimation>
+    @for (item of items().items; track $index) {
+      <div class="stack-item">
+        <!-- {{ item.name }} -->
+      </div>
+    } @empty {
+      <p>A stack está vazia. Adicione Itens.</p>
+    }
+  </div>
+</section>

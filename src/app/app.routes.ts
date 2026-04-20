@@ -20,6 +20,13 @@ export const routes: Routes = [
         path: 'people',
         loadChildren: () => import('./features/people/people.routes').then((m) => m.PEOPLE_ROUTES),
       },
+      {
+        path: 'stacks',
+        loadChildren: () =>
+          import('./features/data-structure/data-structure.routes').then(
+            (m) => m.DATA_STRUCTURE_ROUTES,
+          ),
+      },
       /*  {
         path: 'vehicles',
         loadChildren: () =>

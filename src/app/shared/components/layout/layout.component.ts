@@ -31,6 +31,10 @@ export class LayoutComponent {
   protected isCollapsed: boolean = false;
 
   constructor() {
+    this.createMenuItems();
+  }
+
+  private createMenuItems(): void {
     this.routesPaths = [
       {
         id: 'dashboard',
@@ -46,7 +50,7 @@ export class LayoutComponent {
       { id: 'reports', label: 'Relatórios', path: 'reports' },
       { id: 'settings', label: 'Configurações', path: 'settings' },
       { id: 'maps', label: 'Mapas', path: 'maps' },
-      { id: 'logs', label: 'Logs', path: 'logs' },
+      { id: '2d-charts', label: 'Gráficos 2D', path: '2d-charts' },
       { id: 'public-data', label: 'Dados Públicos', path: 'public-data' },
       {
         id: 'data-structures',
