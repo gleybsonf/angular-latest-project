@@ -1,20 +1,18 @@
+<app-title title="Pilha"></app-title>
+
 <section container-actions>
   <app-button [textButton]="'Adicionar item'" (clickButton)="addItem()"></app-button>
   <app-button
     [textButton]="'Remover item'"
     (clickButton)="removeItem()"
-    [disabled]="true"
+    [disabled]="stack.isEmpty()"
   ></app-button>
 </section>
 
 <section stack-actions>
-  <div class="container" @fadeAnimation>
-    @for (item of items().items; track $index) {
-      <div class="stack-item">
-        <!-- {{ item.name }} -->
-      </div>
-    } @empty {
-      <p>A stack está vazia. Adicione Itens.</p>
-    }
-  </div>
+  @for (item of stack.items(); track $index) {
+    <div class="stack-item">{{ $index + 1 }} - {{ item }}</div>
+  } @empty {
+    <p>A stack está vazia. Adicione Itens.</p>
+  }
 </section>

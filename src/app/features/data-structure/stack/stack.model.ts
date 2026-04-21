@@ -1,20 +1,35 @@
-export class Stack {
-  public items: string[];
+// stack.model.ts
+import { computed, signal } from '@angular/core';
 
-  constructor() {
-    this.items = [];
-  }
+export class Stack {
+  // Transformamos a lista em um Signal privado
+  private _items = signal<string[]>([]);
+
+  // Expomos apenas uma versão de leitura (Readonly) para segurança
+  public items = this._items.asReadonly();
+
+  // Signal computado para facilitar o uso no HTML
+  public isEmpty = computed(() => this._items().length === 0);
 
   public addItem(): void {
-    const newItem = `Item ${this.items.length + 1}`;
-    // Adiciona o novo item no final do array
-    this.items[this.items.length] = newItem;
+    const nextValue = `Item ${this._items().length + 1}`;
+    // .update() garante a criação de uma nova referência (Imutabilidade)
+    this._items.update((prev) => [...prev, nextValue]);
   }
 
   public removeItem(): void {
-    if (this.items.length > 0) {
-      // Remove o último item do array
-      this.items.length = this.items.length - 1;
-    }
+    this._items.update((prev: string[]) => {
+      if (prev.length === 0) {
+        return prev; // Nada a remover, retorna o array original
+      }
+
+      const newArray: string[] = [];
+      for (let i = 0; i < prev.length - 1; i++) {
+        console.log('Adicionando item ao novo array:', prev[i]);
+        newArray[i] = prev[i];
+      }
+
+      return newArray;
+    });
   }
 }
