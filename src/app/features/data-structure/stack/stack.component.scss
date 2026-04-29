@@ -10,6 +10,12 @@
     gap: 1rem;
   }
 
+  section[container-actions]:has(app-button.remove-trigger button:active) + section[stack-actions] {
+    .stack-item:last-child {
+      animation: fadeOut 0.5s ease-out forwards;
+    }
+  }
+
   section[stack-actions] {
     display: flex;
     flex-direction: column-reverse;
@@ -21,6 +27,30 @@
       border: 1px solid #ccc;
       border-radius: 4px;
       margin-top: 16px;
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+  }
+
+  /* Definição da animação */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px); /* Começa um pouco abaixo */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(20px); /* Sai um pouco para baixo */
     }
   }
 }

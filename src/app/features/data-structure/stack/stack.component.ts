@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonComponent } from '@shared/components/ui/button/button.component';
+import { CardComponent } from '@shared/components/ui/card/card.component';
 import { TitleComponent } from '@shared/components/ui/title/title.component';
 import { Stack } from './stack.model';
 
 @Component({
   selector: 'app-stack',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, TitleComponent],
+  imports: [CommonModule, ButtonComponent, TitleComponent, CardComponent],
   templateUrl: './stack.component.html',
   styleUrls: ['./stack.component.scss'],
 })

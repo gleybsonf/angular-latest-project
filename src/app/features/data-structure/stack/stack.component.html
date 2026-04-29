@@ -3,6 +3,7 @@
 <section container-actions>
   <app-button [textButton]="'Adicionar item'" (clickButton)="addItem()"></app-button>
   <app-button
+    class="remove-trigger"
     [textButton]="'Remover item'"
     (clickButton)="removeItem()"
     [disabled]="stack.isEmpty()"
@@ -12,6 +13,7 @@
 <section stack-actions>
   @for (item of stack.items(); track $index) {
     <div class="stack-item">{{ $index + 1 }} - {{ item }}</div>
+    <app-card></app-card>
   } @empty {
     <p>A stack está vazia. Adicione Itens.</p>
   }
