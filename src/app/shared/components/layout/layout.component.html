@@ -1,6 +1,6 @@
 <div class="main-shell">
   <aside class="sidebar" [class.collapsed]="isCollapsed">
-    <!-- <h2>Menu</h2> -->
+    <h1>Estudos</h1>
     <!-- <nav class="nav-link"> -->
     <ul class="menu">
       @for (path of routesPaths; track path.id) {
@@ -30,9 +30,9 @@
 
   <header class="header">
     <button class="mobile-menu-btn" (click)="toggleCollapse()">☰</button>
-    <!-- <span
-      >Olá, <strong>{{ user()?.name }}</strong></span
-    > -->
+    <span
+      >Olá, <strong><!-- {{ user()?.name }} --></strong></span
+    >
     <span>Olá, <strong> USER </strong></span>
     <app-button (clickButton)="logout()" [textButton]="'Sair'" [disabled]="true"></app-button>
   </header>

@@ -73,6 +73,7 @@ export class LayoutComponent {
         ],
       },
       { id: 'ai', label: 'Inteligência Artificial', path: 'ai' },
+      { id: 'games', label: 'Jogos', path: 'games' },
     ];
   }
 
